@@ -1,0 +1,13 @@
+/home/gic-phai-jingpo/oslab-work/lab1/task2_files
+pencil.txt
+rocket.txt
+This is file rocket
+This is file pencil
+pencil.txt
+rocket.txt
+rocket_copy.txt
+pencil_renamed.txt
+rocket.txt
+rocket_copy.txt
+pencil_renamed.txt
+rocket.txt
