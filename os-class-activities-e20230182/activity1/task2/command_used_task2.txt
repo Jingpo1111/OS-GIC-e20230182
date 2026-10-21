@@ -1,0 +1,17 @@
+# Task 2: Commands Used
+
+# 1. Compile the library version
+gcc dir_list_lib.c -o dir_list_lib
+
+# 2. Run the library version
+./dir_list_lib
+
+# 3. Compile the system call version
+gcc dir_list_sys.c -o dir_list_sys
+
+# 4. Run the system call version
+./dir_list_sys
+
+# 5. Compare the outputs
+./dir_list_lib
+./dir_list_sys

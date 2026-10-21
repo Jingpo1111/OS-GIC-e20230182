@@ -1,0 +1,28 @@
+# Task 1: Commands Used
+
+# 1. Compile the library version of file creator
+gcc file_creator_lib.c -o file_creator_lib
+
+# 2. Run the library version
+./file_creator_lib
+
+# 3. Compile the system call version of file creator
+gcc file_creator_sys.c -o file_creator_sys
+
+# 4. Run the system call version
+./file_creator_sys
+
+# 5. Compile the library version of file reader
+gcc file_reader_lib.c -o file_reader_lib
+
+# 6. Run the library version
+./file_reader_lib
+
+# 7. Compile the system call version of file reader
+gcc file_reader_sys.c -o file_reader_sys
+
+# 8. Run the system call version
+./file_reader_sys
+
+# 9. Display the created file
+cat output.txt

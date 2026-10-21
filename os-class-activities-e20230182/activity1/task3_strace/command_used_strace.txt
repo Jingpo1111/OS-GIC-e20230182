@@ -1,0 +1,29 @@
+# Task 3: Commands Used for strace
+
+# 1. Trace the library version of file creator
+strace -e trace=openat,read,write,close ./file_creator_lib 2> strace_lib_task1.txt
+
+# 2. Trace the system call version of file creator
+strace -e trace=openat,read,write,close ./file_creator_sys 2> strace_sys_task1.txt
+
+# 3. Trace the library version of file reader
+strace -e trace=openat,read,write,close ./file_reader_lib 2> strace_lib_reader.txt
+
+# 4. Trace the system call version of file reader
+strace -e trace=openat,read,write,close ./file_reader_sys 2> strace_sys_reader.txt
+
+# 5. Get system call summary for library version
+strace -c ./file_creator_lib 2> strace_summary_lib.txt
+
+# 6. Get system call summary for system call version
+strace -c ./file_creator_sys 2> strace_summary_sys.txt
+
+# 7. Display trace results
+cat strace_lib_task1.txt
+cat strace_sys_task1.txt
+cat strace_lib_reader.txt
+cat strace_sys_reader.txt
+
+# 8. Display system call summaries
+cat strace_summary_lib.txt
+cat strace_summary_sys.txt
