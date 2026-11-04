@@ -1,0 +1,3 @@
+mv -- '../a/b/lost file.txt' ./found.txt
+cp -- ../../c/found.txt ../../../TechCorp/HR/
+Count: 5 .. in total (2 in the source path and 3 in the destination path)

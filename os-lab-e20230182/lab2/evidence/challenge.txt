@@ -1,0 +1,3 @@
+Command: cp -- reports/*.txt TechCorp/HR/
+Quotes: with quotes, the shell does not expand *, so cp looks for a file literally named *.txt, which does not exist.
+Hidden: no, .hidden.txt is not copied, because * does not match names that start with a dot.

@@ -1,0 +1,10 @@
+mv -- "$file1" ../reports/
+mv -- "$OSLAB_WORKSPACE/lab2/incoming/$file2" "$OSLAB_WORKSPACE/lab2/reports/"
+cp -- "reports/$file1" "reports/$file2" "TechCorp/$owner/"
+cp -- "reports/$file1" "TechCorp/$owner/archive/first-original.txt"
+cat "../$owner/$file1"
+cat "$OSLAB_WORKSPACE/lab2/TechCorp/$owner/$file1"
+Decision: I used relative paths in step 3 because I was already in the lab folder and they are shorter.
+Absolute paths are better in a script or when running a command from a different folder.
+Error: cat: 'reports/cash flow.txt': No such file or directory
+Fix: ../../reports/cash flow.txt
