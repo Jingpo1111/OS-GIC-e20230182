@@ -1,48 +1,68 @@
-
+/* winprocess.c — Process creation on Windows using CreateProcess() */
 #include <stdio.h>
 #include <windows.h>
 
-int main(void)
-{
-    STARTUPINFOA si = {0};
-    PROCESS_INFORMATION pi = {0};
+int main() {
+    STARTUPINFO si;
+    PROCESS_INFORMATION pi;
 
+    /* Zero out the structures */
+    ZeroMemory(&si, sizeof(si));
     si.cb = sizeof(si);
+    ZeroMemory(&pi, sizeof(pi));
 
-    printf("Parent process (PID: %lu) - creating child...\n",
-           GetCurrentProcessId());
+    printf("Parent process (PID: %lu) — creating child...\n", GetCurrentProcessId());
 
-    char paintPath[] =
-        "C:\\Users\\Jingpo\\AppData\\Local\\Microsoft\\WindowsApps\\mspaint.exe";
-
-    if (!CreateProcessA(
-            paintPath,
-            NULL,
-            NULL,
-            NULL,
-            FALSE,
-            0,
-            NULL,
-            NULL,
-            &si,
-            &pi))
+    /*
+     * CreateProcess() parameters:
+     *   lpApplicationName  — Full path to the executable
+     *   lpCommandLine      — Command line string (NULL if using lpApplicationName)
+     *   ... other parameters set to defaults ...
+     *   lpStartupInfo      — Pointer to STARTUPINFO
+     *   lpProcessInformation — Receives the new process info
+     *
+     * NOTE: The path to mspaint.exe is typically:
+     *   "C:\\Windows\\System32\\mspaint.exe"
+     *
+     * If mspaint.exe is not at this path on your system, open Task Manager,
+     * run mspaint manually, right-click the process, and select
+     * "Open file location" to find the correct path.
+     */
+    if (!CreateProcess(
+            "C:\\Windows\\System32\\mspaint.exe",  /* Application path */
+            NULL,           /* Command line */
+            NULL,           /* Process security attributes */
+            NULL,           /* Thread security attributes */
+            FALSE,          /* Inherit handles */
+            0,              /* Creation flags */
+            NULL,           /* Environment */
+            NULL,           /* Current directory */
+            &si,            /* Startup info */
+            &pi             /* Process information */
+        ))
     {
-
-        printf("CreateProcess failed (error %lu).\n",
-               GetLastError());
+        fprintf(stderr, "CreateProcess failed (error %lu).\n", GetLastError());
         return 1;
     }
 
     printf("Child process created!\n");
-    printf("Child PID: %lu\n", pi.dwProcessId);
-    printf("Child Thread ID: %lu\n", pi.dwThreadId);
+    printf("  Child PID:       %lu\n", pi.dwProcessId);
+    printf("  Child Thread ID: %lu\n", pi.dwThreadId);
 
-    printf("Waiting for Microsoft Paint to close...\n");
+    /*
+     * Wait for the child process to finish.
+     * mspaint will stay open — close it manually when you're done observing.
+     * WaitForSingleObject blocks until the child terminates.
+     */
+    printf("Parent: waiting for child (mspaint) to exit...\n");
+    printf(">>> Open Task Manager now and take a screenshot! <<<\n");
+    printf(">>> Then close mspaint to let this program finish. <<<\n");
 
     WaitForSingleObject(pi.hProcess, INFINITE);
 
-    printf("Paint closed. Parent finished.\n");
+    printf("Parent: child has exited. Cleaning up.\n");
 
+    /* Close process and thread handles */
     CloseHandle(pi.hProcess);
     CloseHandle(pi.hThread);
 
