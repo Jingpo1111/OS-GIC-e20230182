@@ -154,30 +154,33 @@ Screenshot of compiling and running `sender` and `receiver`:
 ### Output
 
 ```
-[Paste the content of result-mq-ipc.txt here]
+[Receiver: message received from queue '/queue-phaijingpo'
+Receiver: message = "Hello from sender! This is message queue IPC."
+Receiver: queue unlinked.
+]
 ```
 
 ### Questions
 
 1. **How is a message queue different from shared memory? When would you use one over the other?**
 
-   > [Your answer]
+   > [Message queues send separate messages between processes, while shared memory allows direct data sharing. Use message queues for simple communication and shared memory for faster transfer of large amounts of data.]
 
 2. **Why does the queue name in `common.h` need to start with `/`?**
 
-   > [Your answer]
+   > [POSIX message queue names must start with `/` to follow the required naming format.]
 
 3. **What does `mq_unlink()` do? What happens if neither the sender nor receiver calls it?**
 
-   > [Your answer]
+   > [`mq_unlink()` removes the message queue. Without it, the queue remains in the system and may waste resources.]
 
 4. **What happens if you run the receiver before the sender?**
 
-   > [Your answer]
+   > [The receiver waits for a message if the queue exists. If the queue doesn't exist, it returns an error.]
 
 5. **Can multiple senders send to the same queue? Can multiple receivers read from the same queue?**
 
-   > [Your answer]
+   > [Yes, multiple senders and receivers can use the same queue. Each message is received by only one receiver, not all receivers.]
 
 ---
 
@@ -185,4 +188,4 @@ Screenshot of compiling and running `sender` and `receiver`:
 
 What did you learn from this activity? What was the most interesting difference between Linux and Windows process creation? Which IPC method do you prefer and why?
 
-> [Write your reflection here]
+> [I learn how processe are create and communicate. The most interesting difference is that Linux uses fork() and exec(), while Windows uses CreateProcess(). I prefer message queues because they are simple and easy to manage.]
