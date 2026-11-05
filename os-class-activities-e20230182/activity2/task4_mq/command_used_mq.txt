@@ -1,0 +1,20 @@
+  212  mkdir task4_mq
+  213  cd ./task4_mq/
+  214  touch common.h
+  215  nano common.h 
+  216  ls
+  217  touch sender.c
+  218  touch sender.c 
+  219  ls
+  220  nano sender.c 
+  221  touch receiver.c
+  222  nano receiver.c 
+  223  gcc -o sender sender.c -lrt
+  224  gcc -o receiver receiver.c -lrt
+  225  # Step 1: Run the sender (puts a message in the queue)
+  226  ./sender
+  227  # Step 2: Run the receiver (reads the message and saves output)
+  228  ./receiver > result-mq-ipc.txt
+  229  # View the result
+  230  cat result-mq-ipc.txt
+  231  history | tail -n 20 > command_used_mq.txt
