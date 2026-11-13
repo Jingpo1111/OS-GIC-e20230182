@@ -1,9 +1,0 @@
-
-=== NEW FILE USING THE OLD NAME ===
-18743654 -rw-rw-r-- 2 gic-phai-jingpo gic-phai-jingpo 12 Nov 13 22:58 market-final.txt
-18743654 -rw-rw-r-- 2 gic-phai-jingpo gic-phai-jingpo 12 Nov 13 22:58 market-hard.txt
-18745038 lrwxrwxrwx 1 gic-phai-jingpo gic-phai-jingpo 10 Nov 13 23:09 market-soft.txt -> market.txt
-18745039 -rw-rw-r-- 1 gic-phai-jingpo gic-phai-jingpo 12 Nov 13 23:10 market.txt
-market.txt: version 816
-hard: version 789
-soft: version 816
