@@ -1,0 +1,30 @@
+sudo pacman -Rns brave-bin
+pacman -Qs brave
+nano ~/.config/hypr/hyprland.conf
+echo $XDG_CURRENT_DESKTOP
+echo $XDG_SESSION_TYPE
+curl -fsSL https://claude.ai/install.sh | bash
+ls -l ~/.local/bin/claude
+claude --version
+fish_add_path ~/.local/bin
+cd ./Desktop/
+mkdir ITC4
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc   # or ~/.zshrc
+source ~/.bashrc
+sudo pacman -S --needed curl   # usually already installed
+curl -fsSL https://claude.ai/install.sh | bash
+sudo pacman -S telegram-desktop
+la
+sudo pacman -S firefox
+sudo pacman -S librewolf
+sudo ./install.sh
+chmod +x ./install.sh
+cd ./minimaDots
+git clone https://gitlab.com/minimalinux/minimaDots.git
+sudo pacman -S git
+nmtui
+iwctl
+systemctl poweroff
+systemctl powerof
+systemctl show
+systemctl shutdown
