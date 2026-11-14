@@ -1,0 +1,33 @@
+=== Linux Threads ===
+    PID     LWP NLWP PSR STAT COMMAND
+ 117330  117330    5  13 Sl   threads_observe
+ 117330  117331    5   2 Sl   threads_observe
+ 117330  117332    5   6 Sl   threads_observe
+ 117330  117333    5  10 Sl   threads_observe
+ 117330  117334    5  14 Sl   threads_observe
+=== /proc Threads ===
+117330
+117331
+117332
+117333
+117334
+=== Thread Count ===
+5
+=== Kernel Threads ===
+    PID    PPID PSR COMMAND
+      2       0   5 kthreadd
+    PID    PPID PSR COMMAND
+      3       2   0 pool_workqueue_release
+      4       2   0 kworker/R-rcu_gp
+      5       2   0 kworker/R-sync_wq
+      6       2   0 kworker/R-kvfree_rcu_reclaim
+      7       2   0 kworker/R-slub_flushwq
+      8       2   0 kworker/R-netns
+     11       2   0 kworker/0:0H-kblockd
+     14       2   0 kworker/R-mm_percpu_wq
+     15       2   0 ksoftirqd/0
+     16       2  14 rcu_preempt
+     17       2   0 rcub/0
+     18       2   0 rcu_exp_par_gp_kthread_worker/0
+     19       2   6 rcu_exp_gp_kthread_worker
+     20       2   0 migration/0
