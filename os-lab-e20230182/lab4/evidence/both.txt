@@ -1,0 +1,8 @@
+status,count
+ready,3
+paid,6
+ready,3
+ready-late,48
+ready,8
+paid,9
+cat: data/not-present.csv: No such file or directory
